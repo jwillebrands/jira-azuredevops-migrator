@@ -279,36 +279,36 @@ namespace JiraExport
                 if (item.Source != null)
                 {
                     var isCustomField = item.SourceType == "name";
-                    Func<JiraRevision, (bool, object)> value;
+                    FieldMapper<JiraRevision> mapper;
 
                     if (item.Mapping?.Values != null)
                     {
-                        value = r => MapValue(r, item.Source);
+                        mapper = r => MapValue(r, item.Source);
                     }
                     else if (!string.IsNullOrWhiteSpace(item.Mapper))
                     {
                         switch (item.Mapper)
                         {
                             case "MapTitle":
-                                value = r => MapTitle(r);
+                                mapper = r => MapTitle(r);
                                 break;
                             case "MapUser":
-                                value = IfChanged<string>(item.Source, isCustomField, MapUser);
+                                mapper = IfChanged<string>(item.Source, isCustomField, MapUser);
                                 break;
                             case "MapSprint":
-                                value = IfChanged<string>(item.Source, isCustomField, MapSprint);
+                                mapper = IfChanged<string>(item.Source, isCustomField, MapSprint);
                                 break;
                             case "MapTags":
-                                value = IfChanged<string>(item.Source, isCustomField, MapTags);
+                                mapper = IfChanged<string>(item.Source, isCustomField, MapTags);
                                 break;
                             case "MapArray":
-                                value = IfChanged<string>(item.Source, isCustomField, MapArray);
+                                mapper = IfChanged<string>(item.Source, isCustomField, MapArray);
                                 break;
                             case "MapRemainingWork":
-                                value = IfChanged<string>(item.Source, isCustomField, MapRemainingWork);
+                                mapper = IfChanged<string>(item.Source, isCustomField, MapRemainingWork);
                                 break;
                             default:
-                                value = IfChanged<string>(item.Source, isCustomField);
+                                mapper = IfChanged<string>(item.Source, isCustomField);
                                 break;
                         }
                     }
@@ -317,19 +317,19 @@ namespace JiraExport
                         var dataType = item.Type.ToLower();
                         if (dataType == "double")
                         {
-                            value = IfChanged<double>(item.Source, isCustomField);
+                            mapper = IfChanged<double>(item.Source, isCustomField);
                         }
                         else if (dataType == "int" || dataType == "integer")
                         {
-                            value = IfChanged<int>(item.Source, isCustomField);
+                            mapper = IfChanged<int>(item.Source, isCustomField);
                         }
                         else if (dataType == "datetime" || dataType == "date")
                         {
-                            value = IfChanged<DateTime>(item.Source, isCustomField);
+                            mapper = IfChanged<DateTime>(item.Source, isCustomField);
                         }
                         else
                         {
-                            value = IfChanged<string>(item.Source, isCustomField);
+                            mapper = IfChanged<string>(item.Source, isCustomField);
                         }
                     }
 
@@ -340,35 +340,35 @@ namespace JiraExport
                     {
                         if (wit == "All" || wit == "Common")
                         {
-                            commonFields.Add(item.Target, value);
+                            commonFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.Bug)
                         {
-                            bugFields.Add(item.Target, value);
+                            bugFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.Epic)
                         {
-                            epicFields.Add(item.Target, value);
+                            epicFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.Feature)
                         {
-                            featureFields.Add(item.Target, value);
+                            featureFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.ProductBacklogItem)
                         {
-                            pbiFields.Add(item.Target, value);
+                            pbiFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.Requirement)
                         {
-                            requirementFields.Add(item.Target, value);
+                            requirementFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.Task)
                         {
-                            taskFields.Add(item.Target, value);
+                            taskFields.Add(item.Target, mapper);
                         }
                         else if (wit == WorkItemType.UserStory)
                         {
-                            userStoryFields.Add(item.Target, value);
+                            userStoryFields.Add(item.Target, mapper);
                         }
                     }
                 }
@@ -430,7 +430,7 @@ namespace JiraExport
                 return (false, null);
         }
 
-        private (bool, object) MapValue(JiraRevision r, string itemSource)
+        private MapResult MapValue(JiraRevision r, string itemSource)
         {
             var targetWit = (from t in _config.TypeMap.Types where t.Source == r.Type select t.Target).FirstOrDefault();
 
@@ -446,15 +446,16 @@ namespace JiraExport
                         if(string.IsNullOrEmpty(mappedValue))
                         {
                             Logger.Log(LogLevel.Warning, $"Missing mapping value '{value}' for field '{itemSource}'.");
+                        } else {
+                            return new MapResult(true, true, mappedValue);
                         }
-                        return (true, mappedValue);
                     }
                 }
-                return (true, value);
+                        return new MapResult(true, false, value);
             }
             else
             {
-                return (false, null);
+                return new MapResult(false, false, null);
             }
         }
 

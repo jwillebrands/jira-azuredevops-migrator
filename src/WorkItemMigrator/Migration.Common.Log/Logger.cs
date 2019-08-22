@@ -78,6 +78,7 @@ namespace Migration.Common.Log
 
             if (!string.IsNullOrEmpty(key) && Guid.TryParse(key, out Guid temp))
             {
+                throw new SystemException("Trying to create telemetry client. -.-");
                 TelemetryConfiguration.Active.InstrumentationKey = key;
                 _telemetryClient = new TelemetryClient();
                 _telemetryClient.Context.Component.Version = VersionInfo.GetVersionInfo();

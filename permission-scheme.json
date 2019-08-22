@@ -1,0 +1,285 @@
+{
+    "expand": "permissions,user,group,projectRole,field,all",
+    "id": 10101,
+    "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101",
+    "name": "Developer access only",
+    "description": "Default scheme for Software projects.",
+    "permissions": [
+        {
+            "id": 10601,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10601",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "BROWSE_PROJECTS"
+        },
+        {
+            "id": 10602,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10602",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "CREATE_ISSUES"
+        },
+        {
+            "id": 10603,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10603",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "EDIT_ISSUES"
+        },
+        {
+            "id": 10604,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10604",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "ASSIGN_ISSUES"
+        },
+        {
+            "id": 10605,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10605",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "RESOLVE_ISSUES"
+        },
+        {
+            "id": 10606,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10606",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "ADD_COMMENTS"
+        },
+        {
+            "id": 10607,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10607",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "DELETE_ISSUES"
+        },
+        {
+            "id": 10608,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10608",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "ASSIGNABLE_USER"
+        },
+        {
+            "id": 10609,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10609",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "CLOSE_ISSUES"
+        },
+        {
+            "id": 10610,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10610",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "CREATE_ATTACHMENTS"
+        },
+        {
+            "id": 10611,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10611",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "WORK_ON_ISSUES"
+        },
+        {
+            "id": 10612,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10612",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "LINK_ISSUES"
+        },
+        {
+            "id": 10613,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10613",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "ADMINISTER_PROJECTS"
+        },
+        {
+            "id": 10614,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10614",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "MOVE_ISSUES"
+        },
+        {
+            "id": 10615,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10615",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "SCHEDULE_ISSUES"
+        },
+        {
+            "id": 10616,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10616",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "MODIFY_REPORTER"
+        },
+        {
+            "id": 10617,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10617",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "VIEW_VOTERS_AND_WATCHERS"
+        },
+        {
+            "id": 10618,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10618",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "MANAGE_WATCHERS"
+        },
+        {
+            "id": 10619,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10619",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "EDIT_ALL_COMMENTS"
+        },
+        {
+            "id": 10620,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10620",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "EDIT_OWN_COMMENTS"
+        },
+        {
+            "id": 10621,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10621",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "DELETE_ALL_COMMENTS"
+        },
+        {
+            "id": 10622,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10622",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "DELETE_OWN_COMMENTS"
+        },
+        {
+            "id": 10623,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10623",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "DELETE_ALL_ATTACHMENTS"
+        },
+        {
+            "id": 10624,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10624",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "DELETE_OWN_ATTACHMENTS"
+        },
+        {
+            "id": 10625,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10625",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "EDIT_OWN_WORKLOGS"
+        },
+        {
+            "id": 10626,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10626",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "EDIT_ALL_WORKLOGS"
+        },
+        {
+            "id": 10627,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10627",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "DELETE_OWN_WORKLOGS"
+        },
+        {
+            "id": 10628,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10628",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10002",
+                "expand": "projectRole"
+            },
+            "permission": "DELETE_ALL_WORKLOGS"
+        },
+        {
+            "id": 10629,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10629",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "VIEW_READONLY_WORKFLOW"
+        },
+        {
+            "id": 10630,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10630",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "TRANSITION_ISSUES"
+        },
+        {
+            "id": 10631,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10631",
+            "holder": {
+                "type": "applicationRole"
+            },
+            "permission": "VIEW_DEV_TOOLS"
+        },
+        {
+            "id": 10633,
+            "self": "https://jira.asa-dev.com/rest/api/2/permissionscheme/10101/permission/10633",
+            "holder": {
+                "type": "projectRole",
+                "parameter": "10100",
+                "expand": "projectRole"
+            },
+            "permission": "MANAGE_SPRINTS_PERMISSION"
+        }
+    ]
+}

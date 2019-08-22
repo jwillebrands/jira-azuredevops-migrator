@@ -69,8 +69,7 @@ namespace Migration.Common
             foreach (var mapping in mappings)
             {
                 foreach (var m in mapping)
-                    if (!merged.ContainsKey(m.Key))
-                        merged[m.Key] = m.Value;
+                    merged.AddOrMerge(m.Key, m.Value);
             }
             return merged;
         }
